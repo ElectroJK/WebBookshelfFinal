@@ -27,7 +27,7 @@ Library Management API is a backend system designed to facilitate the management
 ### Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo/library-management-api.git
+   git clone https://github.com/ElectroJK/WebBookshelfFinal.git
    ```
 2. Navigate to the project directory:
    ```sh
@@ -45,7 +45,7 @@ Library Management API is a backend system designed to facilitate the management
    ```
 5. Start the server:
    ```sh
-   npm start
+   node server
    ```
    The server will run on `http://localhost:3000` by default.
 
@@ -64,20 +64,6 @@ Library Management API is a backend system designed to facilitate the management
 - **DELETE /books/:id** - Remove a book
 - **GET /books/search?q=title** - Search books by title or author
 - **GET /books/filter?status=Read** - Filter books by reading status
-
-### Authors
-- **GET /authors** - Retrieve all authors
-- **GET /authors/:id** - Retrieve a specific author by ID
-- **POST /authors** - Add a new author
-- **PUT /authors/:id** - Update an existing author
-- **DELETE /authors/:id** - Remove an author
-
-### Borrowers
-- **GET /borrowers** - Retrieve all borrowers
-- **GET /borrowers/:id** - Retrieve a specific borrower by ID
-- **POST /borrowers** - Add a new borrower
-- **PUT /borrowers/:id** - Update an existing borrower
-- **DELETE /borrowers/:id** - Remove a borrower
 
 ## Request & Response Examples
 
