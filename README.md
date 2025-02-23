@@ -83,12 +83,28 @@ POST /auth/register
   "message": "User registered successfully"
 }
 ```
+### Get Your Token
+**Request:** 
+>Make sure you write your logged email and password!
+```json
+POST /auth/login
+{
+    "email": "Example@gmail.com",
+    "password": "*************"
+}
+```
+**Response:**
+```json
+{
+    "token": "YourToken"
+}
+```
 
 ### Add a New Book
 **Request:** 
 >Token is needed for adding books!
 ```json
-POST /books
+POST /books/add
 {
   "title": "test",
   "author": "anon",
