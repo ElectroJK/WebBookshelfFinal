@@ -12,7 +12,7 @@ services:
           name: library-db
           property: connectionString
       - key: PORT
-        value: 3000
+        value: "3000"
 databases:
   - name: library-db
     plan: free
