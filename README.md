@@ -85,22 +85,29 @@ POST /auth/register
 ```
 
 ### Add a New Book
-**Request:**
+**Request:** 
+>Token is needed for adding books!
 ```json
 POST /books
 {
-  "title": "The Great Gatsby",
-  "author": "F. Scott Fitzgerald",
-  "publishedYear": 1925
+  "title": "test",
+  "author": "anon",
+  "status": "Reading",
+  "rating": 5
 }
 ```
 **Response:**
 ```json
 {
-  "_id": "60f7a6e9b4d3c90017b0b5a1",
-  "title": "The Great Gatsby",
-  "author": "F. Scott Fitzgerald",
-  "publishedYear": 1925
+    "title": "test",
+    "author": "anon",
+    "status": "Reading",
+    "rating": 5,
+    "userId": "67bb0a8134a5c808edc86d1f",
+    "_id": "67bb40263f065bbf1de03d04",
+    "createdAt": "2025-02-23T15:35:02.726Z",
+    "updatedAt": "2025-02-23T15:35:02.726Z",
+    "__v": 0
 }
 ```
 
