@@ -1,127 +1,78 @@
 # Library Management API
 
 ## Project Overview
-This project is a Library Management API built using Node.js, Express, and MongoDB. It allows users to register, log in, manage books, and perform administrative tasks. The API includes authentication and authorization mechanisms using JWT.
+This project is a simple Library Management API built using Node.js and MongoDB. It allows users to manage books, authors, and borrowers by providing CRUD operations.
 
 ## Setup Instructions
 
 ### Prerequisites
-Ensure you have the following installed:
-- [Node.js](https://nodejs.org/)
-- [MongoDB](https://www.mongodb.com/)
+- Node.js (v16 or later)
+- MongoDB (local or cloud-based)
 
 ### Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/library-management-api.git
+   git clone https://github.com/your-repo/library-management-api.git
+   ```
+2. Navigate to the project directory:
+   ```sh
    cd library-management-api
    ```
-2. Install dependencies:
+3. Install dependencies:
    ```sh
    npm install
-   ```
-3. Create a `.env` file in the root directory and add the following:
-   ```env
-   MONGO_URI=mongodb://127.0.0.1:27017/libraryDB
-   PORT=3000
-   JWT_SECRET=your_secret_key
    ```
 4. Start the server:
    ```sh
    npm start
    ```
-   The server will run on `http://localhost:3000`.
+   The server will run on `http://localhost:3000` by default.
 
 ## API Documentation
 
-### Authentication
-#### Register a new user
-**POST** `/auth/register`
-- Request Body:
-  ```json
-  {
-    "username": "john_doe",
-    "email": "john@example.com",
-    "password": "password123"
-  }
-  ```
-- Response:
-  ```json
-  { "message": "User registered successfully" }
-  ```
+### Endpoints
 
-#### User Login
-**POST** `/auth/login`
-- Request Body:
-  ```json
-  {
-    "email": "john@example.com",
-    "password": "password123"
-  }
-  ```
-- Response:
-  ```json
-  { "token": "your_jwt_token" }
-  ```
+#### Books
+- **GET /books** - Retrieve all books
+- **GET /books/:id** - Retrieve a specific book by ID
+- **POST /books** - Add a new book
+- **PUT /books/:id** - Update an existing book
+- **DELETE /books/:id** - Remove a book
 
-### Books
-#### Get all books (Authenticated)
-**GET** `/books`
-- Headers:
-  ```sh
-  Authorization: Bearer <your_token>
-  ```
-- Response:
-  ```json
-  [
-    {
-      "_id": "bookId",
-      "title": "Book Title",
-      "author": "Author Name",
-      "status": "Want to Read",
-      "rating": 5
-    }
-  ]
-  ```
+#### Authors
+- **GET /authors** - Retrieve all authors
+- **GET /authors/:id** - Retrieve a specific author by ID
+- **POST /authors** - Add a new author
+- **PUT /authors/:id** - Update an existing author
+- **DELETE /authors/:id** - Remove an author
 
-#### Add a book (Authenticated)
-**POST** `/books`
-- Request Body:
-  ```json
-  {
-    "title": "New Book",
-    "author": "Author Name"
-  }
-  ```
-- Response:
-  ```json
-  { "message": "Book added successfully" }
-  ```
+#### Borrowers
+- **GET /borrowers** - Retrieve all borrowers
+- **GET /borrowers/:id** - Retrieve a specific borrower by ID
+- **POST /borrowers** - Add a new borrower
+- **PUT /borrowers/:id** - Update an existing borrower
+- **DELETE /borrowers/:id** - Remove a borrower
 
-### Admin Routes
-#### Get all users (Admin Only)
-**GET** `/admin/users`
-- Headers:
-  ```sh
-  Authorization: Bearer <admin_token>
-  ```
-- Response:
-  ```json
-  [
-    {
-      "_id": "userId",
-      "username": "john_doe",
-      "email": "john@example.com"
-    }
-  ]
-  ```
-
-#### Delete a user (Admin Only)
-**DELETE** `/admin/users/:id`
-- Response:
-  ```json
-  { "message": "User deleted successfully" }
-  ```
+### Request & Response Examples
+#### Add a new book
+**Request:**
+```json
+POST /books
+{
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "publishedYear": 1925
+}
+```
+**Response:**
+```json
+{
+  "_id": "60f7a6e9b4d3c90017b0b5a1",
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "publishedYear": 1925
+}
+```
 
 ## License
 This project is licensed under the MIT License.
