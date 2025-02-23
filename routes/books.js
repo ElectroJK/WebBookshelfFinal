@@ -62,10 +62,17 @@ router.post("/add", authenticateToken, async (req, res) => {
   try {
     let { title, author, status, rating } = req.body;
     if (!title || !author) return res.status(400).json({ error: "Title and author are required" });
+
+    const validStatuses = ["Want to Read", "Reading", "Read"];
     if (!status) status = "Want to Read";
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({ error: "Invalid status. Allowed values: Want to Read, Reading, Read" });
+    }
+
     if (rating && (isNaN(rating) || rating < 1 || rating > 5)) {
       return res.status(400).json({ error: "Rating must be a number between 1 and 5" });
     }
+
     const newBook = new Book({ title, author, status, rating, userId: req.user.userId });
     await newBook.save();
     res.status(201).json(newBook);
