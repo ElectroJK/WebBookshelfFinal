@@ -15,4 +15,9 @@ services:
         value: "3000"
 databases:
   - name: library-db
+    databaseName: libraryDB
+    user: libraryUser
     plan: free
+    region: oregon
+    ipAllowList: []  
+    databaseType: mongodb
