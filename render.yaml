@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: WebBookshelfProject
+    name: WebBookshelfFinal
     runtime: node
     env: node
     plan: free
