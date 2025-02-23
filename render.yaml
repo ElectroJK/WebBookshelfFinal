@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: WebBookshelfProject
+    runtime: node
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        fromDatabase:
+          name: library-db
+          property: connectionString
+      - key: PORT
+        value: 3000
+databases:
+  - name: library-db
+    databaseName: libraryDB
+    user: libraryUser
